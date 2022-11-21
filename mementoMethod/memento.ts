@@ -1,30 +1,31 @@
 class Memento {
-    public value:any;
-    constructor(value:any){
-        this.value = value;
-    }
-};
+  public value:any;
 
-const creator = {
-save: (val: any) => new Memento(val),
-restore: (memento: { value: any; }) => memento.value
+  constructor(value:any) {
+    this.value = value;
+  }
 }
 
+const creator = {
+  save: (val: any) => new Memento(val),
+  restore: (memento: { value: any; }) => memento.value
+};
 
 class CareTaker {
-    public values:any;
-    constructor() {
-        this.values = [];
-    }
+  public values:any;
 
-    addMemento (memento:any) {
-        this.values.push(memento);
-    }
+  constructor() {
+    this.values = [];
+  }
 
-    getMemento (index:any) {
-        return this.values[index];
-    }
-};
+  addMemento(memento:any) {
+    this.values.push(memento);
+  }
+
+  getMemento(index:any) {
+    return this.values[index];
+  }
+}
 
 const careTaker = new CareTaker();
 careTaker.addMemento(creator.save('hello1'));

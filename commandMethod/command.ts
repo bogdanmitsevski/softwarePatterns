@@ -1,54 +1,54 @@
 class User {
-    protected command:any;
-    constructor(command:any) {
-        this.command = command;
-    }
+  protected command:any;
 
+  constructor(command:any) {
+    this.command = command;
+  }
 
-    execute() {
-        this.command.execute();
-    }
+  execute() {
+    this.command.execute();
+  }
 }
 
 class Action {
-    protected state:any;
-    constructor() {
-        this.state = false;
-    }
+  protected state:any;
 
-    saveAction () {
-        this.state = true;
-    };
+  constructor() {
+    this.state = false;
+  }
 
-    editAction () {
-        this.state = true;
-    }
-};
+  saveAction() {
+    this.state = true;
+  }
 
+  editAction() {
+    this.state = true;
+  }
+}
 
 class SaveActionCommand {
-    protected action:any;
-    constructor(action:any) {
-        this.action = action;
-    };
+  protected action:any;
 
-    execute () {
-        this.action.saveAction();
-    };
-};
+  constructor(action:any) {
+    this.action = action;
+  }
 
+  execute() {
+    this.action.saveAction();
+  }
+}
 
 class EditActionCommand {
-    protected action:any;
-    constructor(action:any) {
-        this.action = action;
-    }
+  protected action:any;
 
-    execute () {
-        this.action.editAction();
-    };
-};
+  constructor(action:any) {
+    this.action = action;
+  }
 
+  execute() {
+    this.action.editAction();
+  }
+}
 
 const action = new Action();
 console.log(action);

@@ -1,46 +1,47 @@
 class House {
-    public price: any;
-    public type: any;
-    constructor () {
-        this.price = 100000;
-        this.type = 'Standard House';
-    }
+  public price: any;
 
-    getPrice () {
-        return this.price;
-    }
+  public type: any;
 
-    getType () {
-        return this.type;
-    }
+  constructor() {
+    this.price = 100000;
+    this.type = 'Standard House';
+  }
+
+  getPrice() {
+    return this.price;
+  }
+
+  getType() {
+    return this.type;
+  }
 }
 
 class BigHouse extends House {
-    constructor () {
-        super();
-        this.price = 250000;
-        this.type = 'Penthaus';
-    }
+  constructor() {
+    super();
+    this.price = 250000;
+    this.type = 'Penthaus';
+  }
 }
 
+class SwimmingPool extends BigHouse {
+  public house: any;
 
-class SwimmingPool extends BigHouse{
-    public house: any;
-    constructor(house:any) {
-        super();
-        this.house = house;
-    }
+  constructor(house:any) {
+    super();
+    this.house = house;
+  }
 
-    getPrice () {
-        return this.house.getPrice() + 10000;
-    }
+  getPrice() {
+    return this.house.getPrice() + 10000;
+  }
 
-    getType () {
-        return `${this.house.getType()} with Swimming Pool`;
-    }
+  getType() {
+    return `${this.house.getType()} with Swimming Pool`;
+  }
 }
 
 let penthaus = new BigHouse();
 penthaus = new SwimmingPool(penthaus);
-console.log(penthaus.getPrice(), penthaus.getType())
-
+console.log(penthaus.getPrice(), penthaus.getType());

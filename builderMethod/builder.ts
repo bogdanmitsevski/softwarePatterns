@@ -1,172 +1,186 @@
-// паттерн Builder використовуються у випадку, коли ми маємо основний об'єкт, наприклад, телефон, який має певний набір характеристик.
-// Але різним людям потрібні різні телефони і щоб не створбвати підкласи з різними моделями телефонів - ми створимо один основний клас,
-// який містить усі властивості і створимо окремі класи-будівельники, які використовуватимуть лише певний набір властивостей під конкретний
+// паттерн Builder використовуються у випадку, коли ми маємо основний об'єкт,
+// наприклад, телефон, який має певний набір характеристик.
+// Але різним людям потрібні різні телефони і щоб не створбвати
+// підкласи з різними моделями телефонів - ми створимо один основний клас,
+// який містить усі властивості і створимо окремі класи-будівельники,
+// які використовуватимуть лише певний набір властивостей під конкретний
 // телефон, який потрібно виготовити
 
-class Phone {
-    public name:any;
-    public price:any;
-    public color:any;
-    public aluminiumBody: any;
-    public goldBody: any;
-    public titanBody: any;
-    public singleCamera: any;
-    public quatroCamera: any;
-    public fastCharge: any;
-    public caseInBox: any;
-    public headPhoensOutPut: any;
-    public memoryCard: any;
-    constructor () {
-        this.name = false;
-        this.price = false;
-        this.color = false;
-        this.aluminiumBody = false;
-        this.goldBody = false;
-        this.titanBody = false;
-        this.singleCamera = false;
-        this.quatroCamera = false;
-        this.fastCharge = false;
-        this.caseInBox = false;
-        this.headPhoensOutPut = false;
-        this.memoryCard = false;
+class Phone2 {
+  public name:any;
 
-    }
-    
+  public price:any;
+
+  public color:any;
+
+  public aluminiumBody: any;
+
+  public goldBody: any;
+
+  public titanBody: any;
+
+  public singleCamera: any;
+
+  public quatroCamera: any;
+
+  public fastCharge: any;
+
+  public caseInBox: any;
+
+  public headPhoensOutPut: any;
+
+  public memoryCard: any;
+
+  constructor() {
+    this.name = false;
+    this.price = false;
+    this.color = false;
+    this.aluminiumBody = false;
+    this.goldBody = false;
+    this.titanBody = false;
+    this.singleCamera = false;
+    this.quatroCamera = false;
+    this.fastCharge = false;
+    this.caseInBox = false;
+    this.headPhoensOutPut = false;
+    this.memoryCard = false;
+  }
 }
 
-    class titanPhoneBuilder {
-        public titanPhone: any;
-        constructor () {
-            this.titanPhone = new Phone();
-        }
+class titanPhoneBuilder {
+  public titanPhone: any;
 
-        addName (name:any) {
-            this.titanPhone.name = name;
-            return this;
-        }
+  constructor() {
+    this.titanPhone = new Phone2();
+  }
 
-        addColor (color:any) {
-            this.titanPhone.color = color;
-            return this;
-        }
+  addName(name:any) {
+    this.titanPhone.name = name;
+    return this;
+  }
 
-        addTitanBody (titanBody:any) {
-            this.titanPhone.titanBody = titanBody;
-            return this;
-        }
+  addColor(color:any) {
+    this.titanPhone.color = color;
+    return this;
+  }
 
-        addQuatroCamera (quatroCamera:any) {
-            this.titanPhone.quatroCamera = quatroCamera;
-            return this;
-        }
+  addTitanBody(titanBody:any) {
+    this.titanPhone.titanBody = titanBody;
+    return this;
+  }
 
+  addQuatroCamera(quatroCamera:any) {
+    this.titanPhone.quatroCamera = quatroCamera;
+    return this;
+  }
 
-        addFastCharge (fastCharge: any) {
-            this.titanPhone.fastCharge = fastCharge;
-            return this;
-        }
+  addFastCharge(fastCharge: any) {
+    this.titanPhone.fastCharge = fastCharge;
+    return this;
+  }
 
-        build () {
-            return this.titanPhone;
-        }
-    };
+  build() {
+    return this.titanPhone;
+  }
+}
 
-    class goldPhoneBuilder {
-        public goldPhone: any;
-        constructor () {
-            this.goldPhone = new Phone();
-        }
+class goldPhoneBuilder {
+  public goldPhone: any;
 
-        addName (name:any) {
-            this.goldPhone.name = name;
-            return this;
-        }
+  constructor() {
+    this.goldPhone = new Phone2();
+  }
 
-        addColor (color:any) {
-            this.goldPhone.color = color;
-            return this;
-        }
+  addName(name:any) {
+    this.goldPhone.name = name;
+    return this;
+  }
 
-        addGoldBody (goldBody:any) {
-            this.goldPhone.goldBody = goldBody;
-            return this;
-        }
+  addColor(color:any) {
+    this.goldPhone.color = color;
+    return this;
+  }
 
-        addQuatroCamera (quatroCamera:any) {
-            this.goldPhone.quatroCamera = quatroCamera;
-            return this;
-        }
+  addGoldBody(goldBody:any) {
+    this.goldPhone.goldBody = goldBody;
+    return this;
+  }
 
+  addQuatroCamera(quatroCamera:any) {
+    this.goldPhone.quatroCamera = quatroCamera;
+    return this;
+  }
 
-        addFastCharge (fastCharge: any) {
-            this.goldPhone.fastCharge = fastCharge;
-            return this;
-        }
+  addFastCharge(fastCharge: any) {
+    this.goldPhone.fastCharge = fastCharge;
+    return this;
+  }
 
-        build () {
-            return this.goldPhone;
-        }
-    };
+  build() {
+    return this.goldPhone;
+  }
+}
 
-    class aluminiumPhoneBuilder {
-        public aluminiumPhone: any;
-        constructor () {
-            this.aluminiumPhone = new Phone();
-        }
+class aluminiumPhoneBuilder {
+  public aluminiumPhone: any;
 
-        addName (name:any) {
-            this.aluminiumPhone.name = name;
-            return this;
-        }
+  constructor() {
+    this.aluminiumPhone = new Phone2();
+  }
 
-        addColor (color:any) {
-            this.aluminiumPhone.color = color;
-            return this;
-        }
+  addName(name:any) {
+    this.aluminiumPhone.name = name;
+    return this;
+  }
 
-        addAluminiumBody (aluminiumBody:any) {
-            this.aluminiumPhone.addAluminiumBody = aluminiumBody;
-            return this;
-        }
+  addColor(color:any) {
+    this.aluminiumPhone.color = color;
+    return this;
+  }
 
-        addSingleCamera (singleCamera:any) {
-            this.aluminiumPhone.singleCamera = singleCamera;
-            return this;
-        }
+  addAluminiumBody(aluminiumBody:any) {
+    this.aluminiumPhone.addAluminiumBody = aluminiumBody;
+    return this;
+  }
 
-        addHeadPhonesOutput (headPhoensOutPut:any) {
-            this.aluminiumPhone.headPhoensOutPut = headPhoensOutPut;
-            return this;
-        }
+  addSingleCamera(singleCamera:any) {
+    this.aluminiumPhone.singleCamera = singleCamera;
+    return this;
+  }
 
-        addMemoryCard (memoryCard: any) {
-            this.aluminiumPhone.memoryCard = memoryCard;
-            return this;
-        }
+  addHeadPhonesOutput(headPhoensOutPut:any) {
+    this.aluminiumPhone.headPhoensOutPut = headPhoensOutPut;
+    return this;
+  }
 
-        build () {
-            return this.aluminiumPhone;
-        }
-    };
+  addMemoryCard(memoryCard: any) {
+    this.aluminiumPhone.memoryCard = memoryCard;
+    return this;
+  }
 
-    const cheapPhone = new aluminiumPhoneBuilder().addName('iPhone XR')
-                                                  .addAluminiumBody(true)
-                                                  .addColor('Black')
-                                                  .addHeadPhonesOutput(true)
-                                                  .addMemoryCard(true)
-                                                  .addSingleCamera(true)
-                                                  .build()
+  build() {
+    return this.aluminiumPhone;
+  }
+}
 
-    const expensivePhone1 = new titanPhoneBuilder().addName('iPhone 14 Pro Max')
-                                                  .addTitanBody(true)
-                                                  .addColor('White')
-                                                  .addQuatroCamera(true)
-                                                  .build()
+const cheapPhone = new aluminiumPhoneBuilder().addName('iPhone XR')
+  .addAluminiumBody(true)
+  .addColor('Black')
+  .addHeadPhonesOutput(true)
+  .addMemoryCard(true)
+  .addSingleCamera(true)
+  .build();
 
-    const expensivePhone2 = new goldPhoneBuilder().addName('iPhone 14 Pro Max')
-                                                  .addGoldBody(true)
-                                                  .addColor('Gold')
-                                                  .addQuatroCamera(true)
-                                                  .build()
+const expensivePhone1 = new titanPhoneBuilder().addName('iPhone 14 Pro Max')
+  .addTitanBody(true)
+  .addColor('White')
+  .addQuatroCamera(true)
+  .build();
 
-    console.log(cheapPhone, expensivePhone1, expensivePhone2);
+const expensivePhone2 = new goldPhoneBuilder().addName('iPhone 14 Pro Max')
+  .addGoldBody(true)
+  .addColor('Gold')
+  .addQuatroCamera(true)
+  .build();
+
+console.log(cheapPhone, expensivePhone1, expensivePhone2);

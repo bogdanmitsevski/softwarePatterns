@@ -1,43 +1,44 @@
 class AppleNews {
-    public news:any;
-    public actions:any;
-    public text:any;
-    constructor() {
-        this.news = '';
-        this.actions = [];
-    };
+  public news:any;
 
-    setNews(text:any) {
-        this.text = text;
-        this.notifyAll();
-    };
+  public actions:any;
 
-    notifyAll() {
-        return this.actions.forEach((subs: any) => {subs.inform(this)});
-    };
+  public text:any;
 
-    register(observer:any) {
-        this.actions.push(observer);
+  constructor() {
+    this.news = '';
+    this.actions = [];
+  }
 
-    };
+  setNews(text:any) {
+    this.text = text;
+    this.notifyAll();
+  }
 
-    unregister (observer:any) {
-        this.actions = this.actions.filter((el: any) => !(el instanceof observer));
-    };
-};
+  notifyAll() {
+    return this.actions.forEach((subs: any) => { subs.inform(this); });
+  }
 
+  register(observer:any) {
+    this.actions.push(observer);
+  }
+
+  unregister(observer:any) {
+    this.actions = this.actions.filter((el: any) => !(el instanceof observer));
+  }
+}
 
 class Bohdan {
-    inform(message:any) {
-        console.log(`Bohdan has been informed about: ${message.news}`);
-    }
-};
+  inform(message:any) {
+    console.log(`Bohdan has been informed about: ${message.news}`);
+  }
+}
 
 class Taras {
-    inform(message:any) {
-        console.log(`Bohdan has been informed about: ${message.news}`);
-    }
-};
+  inform(message:any) {
+    console.log(`Bohdan has been informed about: ${message.news}`);
+  }
+}
 
 const appleNews = new AppleNews();
 
@@ -46,4 +47,4 @@ appleNews.register(new Taras());
 
 appleNews.setNews('New iPhone has price $1000');
 
-//const bohdan = new Bohdan();
+// const bohdan = new Bohdan();

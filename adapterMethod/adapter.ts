@@ -1,30 +1,31 @@
 class PNGimage {
-    pngInterface () {
-        console.log('This is PNG');
-    }
+  pngInterface() {
+    console.log('This is PNG');
+  }
 }
 
 class JPEGimage {
-    jpegInterface () {
-        console.log('This is JPEG');
-    }
+  jpegInterface() {
+    console.log('This is JPEG');
+  }
 }
 
 class JPEGadapter {
-    public image:any;
-    constructor(image:any) {
-        this.image = image;
-    }
+  public image:any;
 
-    pngInterface() {
-        this.image.jpegInterface();
-    }
+  constructor(image:any) {
+    this.image = image;
+  }
+
+  pngInterface() {
+    this.image.jpegInterface();
+  }
 }
 
 class convertImage {
-    convert(image:any) {
-        image.pngInterface();
-    }
+  convert(image:any) {
+    image.pngInterface();
+  }
 }
 
 const newImage = new convertImage();

@@ -1,65 +1,69 @@
 class PaymentSystem {
-    protected balance:any;
-    protected incomer:any;
-    protected name:any;
-    setNext (account:any) {
-        this.incomer = account;
-    };
+  protected balance:any;
 
-    canPay (amount:any) {
-        return this.balance >= amount;
-    };
+  protected incomer:any;
 
-    pay (orderPrice:any) {
-        if(this.canPay(orderPrice)) {
-            console.log(`Paid ${orderPrice} using ${this.name}`);
-        }
-        else if(this.incomer) {
-            console.log(`Cannot pay using ${this.name} method`);
-            this.incomer.pay(orderPrice);
-        }
+  protected name:any;
 
-        else {
-            console.log('Not enough money');
-        }
+  setNext(account:any) {
+    this.incomer = account;
+  }
+
+  canPay(amount:any) {
+    return this.balance >= amount;
+  }
+
+  pay(orderPrice:any) {
+    if (this.canPay(orderPrice)) {
+      console.log(`Paid ${orderPrice} using ${this.name}`);
+    } else if (this.incomer) {
+      console.log(`Cannot pay using ${this.name} method`);
+      this.incomer.pay(orderPrice);
+    } else {
+      console.log('Not enough money');
     }
+  }
 
-    show () {
-      console.log(this);
-    }
-};
+  show() {
+    console.log(this);
+  }
+}
 
 class MasterCard extends PaymentSystem {
-    protected balance:any;
-    protected name:any;
-    constructor(balance:any) {
-        super();
-        this.name = 'Master Card';
-        this.balance = balance;
-    }
-};
+  protected balance:any;
 
+  protected name:any;
+
+  constructor(balance:any) {
+    super();
+    this.name = 'Master Card';
+    this.balance = balance;
+  }
+}
 
 class PayPal extends PaymentSystem {
-    protected name:any;
-    protected balance:any;
-    constructor(balance:any) {
-        super();
-        this.name = 'PayPal';
-        this.balance = balance;
-    }
-};
+  protected name:any;
 
+  protected balance:any;
+
+  constructor(balance:any) {
+    super();
+    this.name = 'PayPal';
+    this.balance = balance;
+  }
+}
 
 class Stripe extends PaymentSystem {
-    protected name:any;
-    protected balance:any;
-    constructor(balance:any) {
-        super();
-        this.name = 'Stripe';
-        this.balance = balance;
-    }
-};
+  protected name:any;
+
+  protected balance:any;
+
+  constructor(balance:any) {
+    super();
+    this.name = 'Stripe';
+    this.balance = balance;
+  }
+}
 
 const master = new MasterCard(200);
 const paypal = new PayPal(300);
